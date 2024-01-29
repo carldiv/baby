@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>for u</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <style>
+   * {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6d0456;
+  font-size: 10vmin;
+  color: #F7FFF7;
+}
+
+.part {
+  position: relative;
+  background-color: #b964b2;
+  will-change: transform, opacity;
+}
+
+.part--animated {
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.part--one {
+  width: 25vmin;
+  height: 25vmin;
+}
+.part--one:before {
+  content: "?";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease-in-out;
+}
+
+.part--one:hover:before {
+  opacity: 0;
+}
+
+.part--one:hover .part--two {
+  pointer-events: initial;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.part--two {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(25%);
+  width: 200%;
+  height: 100%;
+  bottom: -100%;
+  border-bottom-right-radius: 12.5vmin;
+}
+
+.part--two:hover .part--three {
+  pointer-events: initial;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.part--three {
+  opacity: 0;
+  transform: translate(25%, -25%);
+  pointer-events: none;
+  right: -50%;
+  top: -200%;
+  height: 200%;
+  width: 50%;
+  border-top-right-radius: 12.5vmin;
+}
+
+.part--three:hover .part--four {
+  pointer-events: initial;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.part--four {
+  opacity: 0;
+  transform: translate(-25%, -25%);
+  pointer-events: none;
+  width: 200%;
+  height: 50%;
+  left: -200%;
+  border-top-left-radius: 12.5vmin;
+}
+
+.part--four:hover > .part--five {
+  pointer-events: initial;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.part--five {
+  opacity: 0;
+  transform: translate(-25%, 25%);
+  pointer-events: none;
+  width: 50%;
+  height: 200%;
+  top: 100%;
+  border-bottom-left-radius: 12.5vmin;
+}
+
+/* haha, funny class name - does anybody ever read this?  */
+.end-boss {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+.end-boss:before {
+  content: "?";
+  display: block;
+  height: 100%;
+  text-align: center;
+  line-height: 25vmin;
+}
+.end-boss:after {
+  pointer-events: none;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("https://media.tenor.com/8PbFiucMYKAAAAAi/flowers-for-you-emoji-flowers.gif") center center no-repeat;
+  background-size: cover;
+  border-radius: 12.5vmin;
+  width: 300%;
+  height: 300%;
+  transform: translateY(-66.666666%);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.end-boss:hover:after {
+  opacity: 1;
+    }
+  </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="part part--one">
+	<div class="part part--two part--animated">
+		<div class="part part--three part--animated">
+			<div class="part part--four part--animated">
+				<div class="part part--five part--animated">
+					<div class="end-boss"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+  </html>
